@@ -6,3 +6,60 @@
 //
 
 import Foundation
+
+struct SignUpResponse: Codable {
+    let result: String
+}
+
+enum SignUpError: Error {
+    case accountExists, phoneNumberNotExists, failed, unknown
+}
+
+class SignUpService {
+    func signUp(phoneNumber: String, password: String, confirmPassword: String, completion: @escaping (Result<SignUpResponse, SignUpError>) -> Void) {
+        guard let url = URL(string: "https://pclwebapi.azurewebsites.net/api/Driver/DriverSignUp") else {
+            completion(.failure(.unknown))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let signUpRequest = SignUpRequest(phoneNumber: phoneNumber, password: password, confirmPassword: confirmPassword)
+        request.httpBody = try? JSONEncoder().encode(signUpRequest)
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            // Check for fundamental networking error
+            if let error = error {
+                print("Networking error: \(error.localizedDescription)")
+                completion(.failure(.unknown))
+                return
+            }
+            
+            // Check the response code and decode error if possible
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                print("HTTP Error: \(httpResponse.statusCode)")
+                completion(.failure(.failed))
+                return
+            }
+            
+            // Proceed with decoding the data
+            guard let data = data else {
+                completion(.failure(.unknown))
+                return
+            }
+            
+            do {
+                let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
+                // handle the decoding as before...
+            } catch {
+                print("Decoding error: \(error.localizedDescription)")
+                completion(.failure(.unknown))
+            }
+        }
+
+        
+        task.resume()
+    }
+}

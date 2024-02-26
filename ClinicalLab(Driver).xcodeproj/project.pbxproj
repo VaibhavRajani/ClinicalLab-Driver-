@@ -14,6 +14,18 @@
 		2F54056B2B8BFC4B00C8BC99 /* ClinicalLab_Driver_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54056A2B8BFC4B00C8BC99 /* ClinicalLab_Driver_Tests.swift */; };
 		2F5405752B8BFC4B00C8BC99 /* ClinicalLab_Driver_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405742B8BFC4B00C8BC99 /* ClinicalLab_Driver_UITests.swift */; };
 		2F5405772B8BFC4B00C8BC99 /* ClinicalLab_Driver_UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405762B8BFC4B00C8BC99 /* ClinicalLab_Driver_UITestsLaunchTests.swift */; };
+		2F5405882B8BFD1900C8BC99 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405872B8BFD1900C8BC99 /* LoginService.swift */; };
+		2F54058A2B8BFD2100C8BC99 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405892B8BFD2100C8BC99 /* LoginViewModel.swift */; };
+		2F54058C2B8BFD7A00C8BC99 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54058B2B8BFD7A00C8BC99 /* LoginView.swift */; };
+		2F54058E2B8BFF0D00C8BC99 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54058D2B8BFF0D00C8BC99 /* SignUpService.swift */; };
+		2F5405902B8BFF8D00C8BC99 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54058F2B8BFF8D00C8BC99 /* SignUpViewModel.swift */; };
+		2F5405922B8BFFA200C8BC99 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405912B8BFFA200C8BC99 /* SignUpView.swift */; };
+		2F5405942B8C001800C8BC99 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405932B8C001800C8BC99 /* SignUpRequest.swift */; };
+		2F5405962B8C0BD900C8BC99 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405952B8C0BD900C8BC99 /* LoginRequest.swift */; };
+		2F5405982B8C142C00C8BC99 /* RouteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405972B8C142C00C8BC99 /* RouteService.swift */; };
+		2F54059A2B8C143800C8BC99 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405992B8C143800C8BC99 /* Route.swift */; };
+		2F54059C2B8C14B900C8BC99 /* RouteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54059B2B8C14B900C8BC99 /* RouteDetailViewModel.swift */; };
+		2F54059E2B8C14DD00C8BC99 /* RoutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54059D2B8C14DD00C8BC99 /* RoutesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +56,18 @@
 		2F5405702B8BFC4B00C8BC99 /* ClinicalLab(Driver)UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ClinicalLab(Driver)UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5405742B8BFC4B00C8BC99 /* ClinicalLab_Driver_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalLab_Driver_UITests.swift; sourceTree = "<group>"; };
 		2F5405762B8BFC4B00C8BC99 /* ClinicalLab_Driver_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalLab_Driver_UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2F5405872B8BFD1900C8BC99 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		2F5405892B8BFD2100C8BC99 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		2F54058B2B8BFD7A00C8BC99 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2F54058D2B8BFF0D00C8BC99 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
+		2F54058F2B8BFF8D00C8BC99 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		2F5405912B8BFFA200C8BC99 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		2F5405932B8C001800C8BC99 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
+		2F5405952B8C0BD900C8BC99 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		2F5405972B8C142C00C8BC99 /* RouteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteService.swift; sourceTree = "<group>"; };
+		2F5405992B8C143800C8BC99 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		2F54059B2B8C14B900C8BC99 /* RouteDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewModel.swift; sourceTree = "<group>"; };
+		2F54059D2B8C14DD00C8BC99 /* RoutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +119,10 @@
 			isa = PBXGroup;
 			children = (
 				2F5405592B8BFC4900C8BC99 /* ClinicalLab_Driver_App.swift */,
-				2F54055B2B8BFC4900C8BC99 /* ContentView.swift */,
+				2F5405842B8BFCFC00C8BC99 /* Model */,
+				2F5405862B8BFD0C00C8BC99 /* ViewModel */,
+				2F5405852B8BFD0700C8BC99 /* View */,
+				2F5405832B8BFCF500C8BC99 /* Service */,
 				2F54055D2B8BFC4B00C8BC99 /* Assets.xcassets */,
 				2F54055F2B8BFC4B00C8BC99 /* Preview Content */,
 			);
@@ -125,6 +152,47 @@
 				2F5405762B8BFC4B00C8BC99 /* ClinicalLab_Driver_UITestsLaunchTests.swift */,
 			);
 			path = "ClinicalLab(Driver)UITests";
+			sourceTree = "<group>";
+		};
+		2F5405832B8BFCF500C8BC99 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2F5405972B8C142C00C8BC99 /* RouteService.swift */,
+				2F5405872B8BFD1900C8BC99 /* LoginService.swift */,
+				2F54058D2B8BFF0D00C8BC99 /* SignUpService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2F5405842B8BFCFC00C8BC99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F5405932B8C001800C8BC99 /* SignUpRequest.swift */,
+				2F5405952B8C0BD900C8BC99 /* LoginRequest.swift */,
+				2F5405992B8C143800C8BC99 /* Route.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2F5405852B8BFD0700C8BC99 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F54058B2B8BFD7A00C8BC99 /* LoginView.swift */,
+				2F54055B2B8BFC4900C8BC99 /* ContentView.swift */,
+				2F5405912B8BFFA200C8BC99 /* SignUpView.swift */,
+				2F54059D2B8C14DD00C8BC99 /* RoutesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F5405862B8BFD0C00C8BC99 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F5405892B8BFD2100C8BC99 /* LoginViewModel.swift */,
+				2F54059B2B8C14B900C8BC99 /* RouteDetailViewModel.swift */,
+				2F54058F2B8BFF8D00C8BC99 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +325,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F54058A2B8BFD2100C8BC99 /* LoginViewModel.swift in Sources */,
+				2F54058E2B8BFF0D00C8BC99 /* SignUpService.swift in Sources */,
+				2F54059E2B8C14DD00C8BC99 /* RoutesView.swift in Sources */,
 				2F54055C2B8BFC4900C8BC99 /* ContentView.swift in Sources */,
+				2F5405962B8C0BD900C8BC99 /* LoginRequest.swift in Sources */,
+				2F5405882B8BFD1900C8BC99 /* LoginService.swift in Sources */,
+				2F54059C2B8C14B900C8BC99 /* RouteDetailViewModel.swift in Sources */,
+				2F5405922B8BFFA200C8BC99 /* SignUpView.swift in Sources */,
+				2F5405942B8C001800C8BC99 /* SignUpRequest.swift in Sources */,
+				2F54058C2B8BFD7A00C8BC99 /* LoginView.swift in Sources */,
+				2F5405982B8C142C00C8BC99 /* RouteService.swift in Sources */,
+				2F54059A2B8C143800C8BC99 /* Route.swift in Sources */,
 				2F54055A2B8BFC4900C8BC99 /* ClinicalLab_Driver_App.swift in Sources */,
+				2F5405902B8BFF8D00C8BC99 /* SignUpViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
