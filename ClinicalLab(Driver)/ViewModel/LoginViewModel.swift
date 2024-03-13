@@ -14,6 +14,7 @@ class LoginViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var loginFailed: Bool = false
     var onLoginSuccess: ((Int) -> Void)?
+    @Published var isAuthenticated = false
 
     private var loginService: LoginService
     
@@ -28,6 +29,7 @@ class LoginViewModel: ObservableObject {
                 case .success(let response):
                     // Update isAuthenticated when login is successful
                     self?.onLoginSuccess?(response.routeNo)
+                    self?.isAuthenticated = true
                     print(response.routeNo)
                 case .failure(let error):
                     // Handle failure, show error message

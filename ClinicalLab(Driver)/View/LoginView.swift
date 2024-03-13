@@ -37,10 +37,8 @@ struct LoginView: View {
                 }
             }
             
-            NavigationLink(destination: RoutesView(viewModel: RouteViewModel(routeService: RouteService(), routeNumber: routeNumber ?? 0)), tag: routeNumber ?? 0, selection: $routeNumber) {
-                EmptyView()
-            }
-            .hidden()
+            NavigationLink("", destination: RoutesView(viewModel: RouteViewModel(), routeNo: routeNumber ?? 0), isActive: $viewModel.isAuthenticated)
+
             
             if viewModel.loginFailed {
                 Text("Login failed. Please try again.")

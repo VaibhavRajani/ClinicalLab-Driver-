@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F29C3B62B9F63770032AB33 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29C3B52B9F63770032AB33 /* MapView.swift */; };
+		2F387A2F2B96A381000ED2B0 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F387A2E2B96A381000ED2B0 /* Driver.swift */; };
 		2F54055A2B8BFC4900C8BC99 /* ClinicalLab_Driver_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405592B8BFC4900C8BC99 /* ClinicalLab_Driver_App.swift */; };
 		2F54055C2B8BFC4900C8BC99 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54055B2B8BFC4900C8BC99 /* ContentView.swift */; };
 		2F54055E2B8BFC4B00C8BC99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F54055D2B8BFC4B00C8BC99 /* Assets.xcassets */; };
@@ -24,8 +26,11 @@
 		2F5405962B8C0BD900C8BC99 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405952B8C0BD900C8BC99 /* LoginRequest.swift */; };
 		2F5405982B8C142C00C8BC99 /* RouteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405972B8C142C00C8BC99 /* RouteService.swift */; };
 		2F54059A2B8C143800C8BC99 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405992B8C143800C8BC99 /* Route.swift */; };
-		2F54059C2B8C14B900C8BC99 /* RouteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54059B2B8C14B900C8BC99 /* RouteDetailViewModel.swift */; };
+		2F54059C2B8C14B900C8BC99 /* RouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54059B2B8C14B900C8BC99 /* RouteViewModel.swift */; };
 		2F54059E2B8C14DD00C8BC99 /* RoutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54059D2B8C14DD00C8BC99 /* RoutesView.swift */; };
+		2FB32CF72BA2038100B99611 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB32CF62BA2038100B99611 /* MapViewModel.swift */; };
+		2FB32CF92BA214D600B99611 /* CustomerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB32CF82BA214D600B99611 /* CustomerMapView.swift */; };
+		2FB32CFB2BA25CD900B99611 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB32CFA2BA25CD900B99611 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F29C3B52B9F63770032AB33 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2F387A2E2B96A381000ED2B0 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		2F5405562B8BFC4900C8BC99 /* ClinicalLab(Driver).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClinicalLab(Driver).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5405592B8BFC4900C8BC99 /* ClinicalLab_Driver_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalLab_Driver_App.swift; sourceTree = "<group>"; };
 		2F54055B2B8BFC4900C8BC99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,8 +73,11 @@
 		2F5405952B8C0BD900C8BC99 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		2F5405972B8C142C00C8BC99 /* RouteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteService.swift; sourceTree = "<group>"; };
 		2F5405992B8C143800C8BC99 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
-		2F54059B2B8C14B900C8BC99 /* RouteDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewModel.swift; sourceTree = "<group>"; };
+		2F54059B2B8C14B900C8BC99 /* RouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModel.swift; sourceTree = "<group>"; };
 		2F54059D2B8C14DD00C8BC99 /* RoutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesView.swift; sourceTree = "<group>"; };
+		2FB32CF62BA2038100B99611 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		2FB32CF82BA214D600B99611 /* CustomerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMapView.swift; sourceTree = "<group>"; };
+		2FB32CFA2BA25CD900B99611 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +180,7 @@
 				2F5405932B8C001800C8BC99 /* SignUpRequest.swift */,
 				2F5405952B8C0BD900C8BC99 /* LoginRequest.swift */,
 				2F5405992B8C143800C8BC99 /* Route.swift */,
+				2F387A2E2B96A381000ED2B0 /* Driver.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +192,9 @@
 				2F54055B2B8BFC4900C8BC99 /* ContentView.swift */,
 				2F5405912B8BFFA200C8BC99 /* SignUpView.swift */,
 				2F54059D2B8C14DD00C8BC99 /* RoutesView.swift */,
+				2F29C3B52B9F63770032AB33 /* MapView.swift */,
+				2FB32CF82BA214D600B99611 /* CustomerMapView.swift */,
+				2FB32CFA2BA25CD900B99611 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,8 +203,9 @@
 			isa = PBXGroup;
 			children = (
 				2F5405892B8BFD2100C8BC99 /* LoginViewModel.swift */,
-				2F54059B2B8C14B900C8BC99 /* RouteDetailViewModel.swift */,
+				2F54059B2B8C14B900C8BC99 /* RouteViewModel.swift */,
 				2F54058F2B8BFF8D00C8BC99 /* SignUpViewModel.swift */,
+				2FB32CF62BA2038100B99611 /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -325,20 +340,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F387A2F2B96A381000ED2B0 /* Driver.swift in Sources */,
+				2F29C3B62B9F63770032AB33 /* MapView.swift in Sources */,
 				2F54058A2B8BFD2100C8BC99 /* LoginViewModel.swift in Sources */,
 				2F54058E2B8BFF0D00C8BC99 /* SignUpService.swift in Sources */,
 				2F54059E2B8C14DD00C8BC99 /* RoutesView.swift in Sources */,
 				2F54055C2B8BFC4900C8BC99 /* ContentView.swift in Sources */,
 				2F5405962B8C0BD900C8BC99 /* LoginRequest.swift in Sources */,
+				2FB32CF92BA214D600B99611 /* CustomerMapView.swift in Sources */,
 				2F5405882B8BFD1900C8BC99 /* LoginService.swift in Sources */,
-				2F54059C2B8C14B900C8BC99 /* RouteDetailViewModel.swift in Sources */,
+				2F54059C2B8C14B900C8BC99 /* RouteViewModel.swift in Sources */,
 				2F5405922B8BFFA200C8BC99 /* SignUpView.swift in Sources */,
 				2F5405942B8C001800C8BC99 /* SignUpRequest.swift in Sources */,
 				2F54058C2B8BFD7A00C8BC99 /* LoginView.swift in Sources */,
 				2F5405982B8C142C00C8BC99 /* RouteService.swift in Sources */,
+				2FB32CF72BA2038100B99611 /* MapViewModel.swift in Sources */,
 				2F54059A2B8C143800C8BC99 /* Route.swift in Sources */,
 				2F54055A2B8BFC4900C8BC99 /* ClinicalLab_Driver_App.swift in Sources */,
 				2F5405902B8BFF8D00C8BC99 /* SignUpViewModel.swift in Sources */,
+				2FB32CFB2BA25CD900B99611 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

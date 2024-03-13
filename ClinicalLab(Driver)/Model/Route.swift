@@ -41,9 +41,9 @@ struct Customer: Codable, Identifiable {
     var city: String?
     let state: String?
     let zip: String?
-    let specimensCollected: Int?
+    var specimensCollected: Int?
     let pickUpTime: String?
-    let collectionStatus: String?
+    var collectionStatus: String?
     let isSelected: Bool?
     let cust_Lat: Double?
     let cust_Log: Double?
