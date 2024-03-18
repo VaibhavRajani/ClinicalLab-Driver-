@@ -12,8 +12,7 @@ import MapKit
 struct RoutesView: View {
     @StateObject var viewModel: RouteViewModel
     let routeNo: Int
-    @State private var showingSettings = false // State to control the presentation of SettingsView
-
+    @State private var showingSettings = false
     @Environment(\.presentationMode) var presentationMode
     
     
@@ -32,14 +31,14 @@ struct RoutesView: View {
                 }
             }
             .navigationBarBackButtonHidden(true)
-            .navigationTitle("Routes") // Set the title for your navigation bar here
+            .navigationTitle("Routes")
                         .navigationBarItems(trailing: Button(action: {
                             showingSettings = true
                         }) {
-                            Image(systemName: "gear") // Use any icon that suits your design
+                            Image(systemName: "gear")
                         })
                         .sheet(isPresented: $showingSettings) {
-                            SettingsView() // Your settings view here
+                            SettingsView()
                         }
             .onAppear {
                 DispatchQueue.main.async {
@@ -76,7 +75,6 @@ struct RoutesView: View {
                 customerLocation: CLLocationCoordinate2D(latitude: lat, longitude: long)
             ))
         } else {
-            // Handle the error scenario or provide a fallback view
             Text("Unable to fetch map details.")
         }
     }
@@ -117,8 +115,7 @@ struct RoutesView: View {
             .padding(.vertical, 4)
             .onTapGesture {
                 viewModel.selectedCustomer = customer
-                viewModel.isShowingMapForCustomer = true  // This should trigger the NavigationLink
-                
+                viewModel.isShowingMapForCustomer = true
             }
         }
     }

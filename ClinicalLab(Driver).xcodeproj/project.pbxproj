@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F00AEED2BA29D61003CCF1B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F00AEEC2BA29D61003CCF1B /* SessionManager.swift */; };
 		2F29C3B62B9F63770032AB33 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29C3B52B9F63770032AB33 /* MapView.swift */; };
 		2F387A2F2B96A381000ED2B0 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F387A2E2B96A381000ED2B0 /* Driver.swift */; };
 		2F54055A2B8BFC4900C8BC99 /* ClinicalLab_Driver_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405592B8BFC4900C8BC99 /* ClinicalLab_Driver_App.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F00AEEC2BA29D61003CCF1B /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		2F29C3B52B9F63770032AB33 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2F387A2E2B96A381000ED2B0 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		2F5405562B8BFC4900C8BC99 /* ClinicalLab(Driver).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClinicalLab(Driver).app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 				2F5405972B8C142C00C8BC99 /* RouteService.swift */,
 				2F5405872B8BFD1900C8BC99 /* LoginService.swift */,
 				2F54058D2B8BFF0D00C8BC99 /* SignUpService.swift */,
+				2F00AEEC2BA29D61003CCF1B /* SessionManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				2F54059A2B8C143800C8BC99 /* Route.swift in Sources */,
 				2F54055A2B8BFC4900C8BC99 /* ClinicalLab_Driver_App.swift in Sources */,
 				2F5405902B8BFF8D00C8BC99 /* SignUpViewModel.swift in Sources */,
+				2F00AEED2BA29D61003CCF1B /* SessionManager.swift in Sources */,
 				2FB32CFB2BA25CD900B99611 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "App uses Face ID for authentication";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -504,6 +509,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "App uses Face ID for authentication";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;

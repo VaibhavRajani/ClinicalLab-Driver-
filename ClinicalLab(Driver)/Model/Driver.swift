@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
 struct DriverLocation: Codable {
     let lat: Double
@@ -29,4 +30,9 @@ struct CustomerLocation: Identifiable {
     let name: String?
     let address: String?
     let coordinate: CLLocationCoordinate2D
+}
+
+struct IdentifiableAnnotation: Identifiable {
+    let id = UUID()
+    var annotation: MKAnnotation
 }

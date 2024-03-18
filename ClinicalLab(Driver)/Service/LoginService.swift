@@ -10,7 +10,6 @@ import Foundation
 struct LoginResponse: Codable {
     let routeNo: Int
     
-    // Coding keys to match the JSON keys exactly if they're case sensitive.
     enum CodingKeys: String, CodingKey {
         case routeNo = "RouteNo"
     }
@@ -22,7 +21,7 @@ enum LoginError: Error {
     case passwordIncorrect
     case failed
     case unknown
-    case decodingError(String) // To handle decoding errors with a message
+    case decodingError(String)
     
     var localizedDescription: String {
         switch self {

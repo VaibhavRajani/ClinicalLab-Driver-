@@ -30,21 +30,18 @@ class SignUpService {
         request.httpBody = try? JSONEncoder().encode(signUpRequest)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            // Check for fundamental networking error
             if let error = error {
                 print("Networking error: \(error.localizedDescription)")
                 completion(.failure(.unknown))
                 return
             }
             
-            // Check the response code and decode error if possible
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
                 print("HTTP Error: \(httpResponse.statusCode)")
                 completion(.failure(.failed))
                 return
             }
             
-            // Proceed with decoding the data
             guard let data = data else {
                 completion(.failure(.unknown))
                 return
@@ -52,7 +49,6 @@ class SignUpService {
             
             do {
                 let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
-                // handle the decoding as before...
             } catch {
                 print("Decoding error: \(error.localizedDescription)")
                 completion(.failure(.unknown))

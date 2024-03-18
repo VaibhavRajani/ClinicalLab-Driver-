@@ -118,8 +118,6 @@ class RouteService {
                 return
             }
             
-            // We'll assume a simple text response for a successful operation
-            // You'll need to adjust this based on your actual response
             let responseString = String(data: data, encoding: .utf8)
             completion(.success(responseString ?? "Success"))
         }.resume()
