@@ -41,4 +41,6 @@ class LoginViewModel: ObservableObject {
     }
 }
 
-
+extension Color {
+    static let customPink = Color(red: 140 / 255, green: 36 / 255, blue: 68 / 255)
+}

@@ -22,10 +22,9 @@ struct CustomerMapView: View {
                 VStack {
                     Text(selectedCustomer.customerName ?? "Unknown")
                         .font(.title2)
-                        .fontWeight(.bold)
                     Text("\(selectedCustomer.streetAddress ?? ""), \(selectedCustomer.city ?? ""), \(selectedCustomer.state ?? "")")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.blue)
                     
                     MapView(viewModel: MapViewViewModel(driverLocationService: RouteService(), driverId: viewModel.routeDetails.first?.route.driverId ?? 87, customerLocation: CLLocationCoordinate2D(latitude: selectedCustomer.cust_Lat ?? 0, longitude: selectedCustomer.cust_Log ?? 0)))
                     
@@ -42,7 +41,7 @@ struct CustomerMapView: View {
                     
                     HStack{
                         Text("Number of Specimens Collected:")
-                        TextField("", text: $numberOfSpecimens)
+                        TextField("\(selectedCustomer.specimensCollected ?? 0)", text: $numberOfSpecimens)
                             .keyboardType(.numberPad)
                             .frame(width: 50)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -68,6 +67,11 @@ struct CustomerMapView: View {
                 Text("Loading customer details...")
             }
         }
-        .navigationBarTitle("Customer Details", displayMode: .inline)
+        .toolbarBackground(
+            Color.customPink,
+            for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle("", displayMode: .inline)
     }
 }

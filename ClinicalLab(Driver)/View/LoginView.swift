@@ -15,12 +15,27 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            TextField("Enter Phone Number", text: $viewModel.phoneNumber)
-                .keyboardType(.numberPad)
-                .padding()
             
-            SecureField("Enter Password", text: $viewModel.password)
-                .padding()
+            Image("parkway")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 300)
+                .padding(.top)
+            
+            HStack {
+                Text("Phone No:")
+                    .foregroundStyle(Color.customPink)
+                TextField("Enter Phone Number", text: $viewModel.phoneNumber)
+            }
+            .keyboardType(.numberPad)
+            .padding()
+            
+            HStack {
+                Text("Password:")
+                    .foregroundStyle(Color.customPink)
+                SecureField("Enter Password", text: $viewModel.password)
+            }
+            .padding()
             
             Button(action: {
                 viewModel.login()
@@ -28,7 +43,8 @@ struct LoginView: View {
                 Text("Login")
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color.red)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.customPink)
                     .cornerRadius(8)
             }
             .onAppear {
@@ -38,7 +54,7 @@ struct LoginView: View {
             }
             
             NavigationLink("", destination: RoutesView(viewModel: RouteViewModel(), routeNo: routeNumber ?? 0), isActive: $viewModel.isAuthenticated)
-
+            
             
             if viewModel.loginFailed {
                 Text("Login failed. Please try again.")
@@ -53,7 +69,12 @@ struct LoginView: View {
                 .foregroundColor(Color.blue)
             }
         }
-        .navigationTitle("Login")
+        .navigationTitle("")
+        .toolbarBackground(
+            Color.customPink,
+            for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .navigationBarTitleDisplayMode(.inline)
         .padding()
     }
 }

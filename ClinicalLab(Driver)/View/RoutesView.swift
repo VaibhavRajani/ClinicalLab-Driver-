@@ -14,7 +14,7 @@ struct RoutesView: View {
     let routeNo: Int
     @State private var showingSettings = false
     @Environment(\.presentationMode) var presentationMode
-    
+    @State private var showingLogin = false
     
     var body: some View {
         ScrollView {
@@ -23,23 +23,39 @@ struct RoutesView: View {
                     Text("Fetching route details...")
                 } else {
                     ForEach(viewModel.routeDetails, id: \.route.routeNo) { routeDetail in
-                        
-                        routeInformationView(routeDetail: routeDetail)
-                        customerListView(customers: routeDetail.customer)
+                        viewModel.routeInformationView(routeDetail: routeDetail)
+                        viewModel.customerListView(customers: routeDetail.customer)
                         
                     }
                 }
             }
             .navigationBarBackButtonHidden(true)
-            .navigationTitle("Routes")
-                        .navigationBarItems(trailing: Button(action: {
-                            showingSettings = true
-                        }) {
-                            Image(systemName: "gear")
-                        })
-                        .sheet(isPresented: $showingSettings) {
-                            SettingsView()
-                        }
+            .navigationTitle("")
+            .navigationBarItems(
+                trailing: HStack{
+                    NavigationLink(
+                        destination: LoginView(viewModel: LoginViewModel(loginService: LoginService())),
+                        isActive: $showingLogin
+                    ) {
+                        EmptyView()
+                    }
+                    Button("Sign Out") {
+                        showingLogin = true
+                    }
+                    .foregroundColor(.red)
+                    Button(action: {
+                        showingSettings = true
+                    }) {
+                        Image(systemName: "gear")
+                            .foregroundColor(.white)
+                    }}
+            )
+            .sheet(isPresented: $showingSettings) {
+                SettingsView()
+            }
+            .fullScreenCover(isPresented: $showingLogin) {
+                LoginView(viewModel: LoginViewModel(loginService: LoginService()))
+            }
             .onAppear {
                 DispatchQueue.main.async {
                     viewModel.fetchRouteDetail(routeNo: routeNo)
@@ -47,6 +63,12 @@ struct RoutesView: View {
             }
             
         }
+        .toolbarBackground(
+            Color.customPink,
+            for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .navigationBarTitleDisplayMode(.inline)
+        
         if let selectedCustomer = viewModel.selectedCustomer,
            let customerLat = selectedCustomer.cust_Lat,
            let customerLong = selectedCustomer.cust_Log,
@@ -76,47 +98,6 @@ struct RoutesView: View {
             ))
         } else {
             Text("Unable to fetch map details.")
-        }
-    }
-    
-    
-    
-    func routeInformationView(routeDetail: RouteDetailResponse) -> some View {
-        VStack(alignment: .center, spacing: 10) {
-            Text("Route Name: \(routeDetail.route.routeName ?? "")")
-            Text("Route Number: \(routeDetail.route.routeNo ?? 1)")
-            Text("Vehicle No: \(routeDetail.route.vehicleNo ?? "")")
-            Text("No. of Customers: \(routeDetail.customer.count)")
-        }
-        .padding()
-        .frame(maxWidth: .infinity)
-        .background(Color.red)
-    }
-    
-    func customerListView(customers: [Customer]) -> some View {
-        ForEach(customers, id: \.id) { customer in
-            HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    HStack {
-                        Text(customer.customerName ?? "Unknown")
-                        if customer.collectionStatus == "Collected" {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
-                        }
-                    }
-                    Text("\(customer.streetAddress ?? ""), \(customer.city ?? ""), \(customer.state ?? "")" )
-                }
-                Spacer()
-                VStack(alignment: .trailing, spacing: 4) {
-                    Text(customer.pickUpTime ?? "N/A")
-                    Text("#\(customer.customerId ?? 0)")
-                }
-            }
-            .padding(.vertical, 4)
-            .onTapGesture {
-                viewModel.selectedCustomer = customer
-                viewModel.isShowingMapForCustomer = true
-            }
         }
     }
     
