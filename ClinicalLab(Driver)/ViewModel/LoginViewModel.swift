@@ -27,12 +27,10 @@ class LoginViewModel: ObservableObject {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    // Update isAuthenticated when login is successful
                     self?.onLoginSuccess?(response.routeNo)
                     self?.isAuthenticated = true
                     print(response.routeNo)
                 case .failure(let error):
-                    // Handle failure, show error message
                     self?.loginFailed = true
                     print(error.localizedDescription)
                 }

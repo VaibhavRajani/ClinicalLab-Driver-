@@ -30,7 +30,6 @@ class RouteService {
             }
             
             let jsonString = String(data: data, encoding: .utf8)
-            //            print("\(String(describing: jsonString))")
             
             do {
                 let routeDetails = try JSONDecoder().decode([RouteDetailResponse].self, from: data)

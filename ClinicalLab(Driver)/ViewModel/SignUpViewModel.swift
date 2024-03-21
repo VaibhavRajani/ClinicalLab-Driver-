@@ -26,7 +26,6 @@ class SignUpViewModel: ObservableObject {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    // Handle success, navigate to next screen or store the user session
                     print(response.result)
                 case .failure(let error):
                     self?.signUpFailed = true

@@ -40,6 +40,8 @@ class MapViewViewModel: ObservableObject {
                     ]
                     
                     self?.updateRegionForLocations()
+                    self?.fetchRoute()
+
                     
                 case .failure(let error):
                     print(error.localizedDescription)
@@ -49,10 +51,24 @@ class MapViewViewModel: ObservableObject {
     }
     
     func updateRegionForLocations() {
-        let annotationsToInclude = annotations.map { $0.annotation.coordinate }
-        let region = regionThatFits(annotations: annotationsToInclude)
-        mapRegion = region
-    }
+            guard let routeLine = routeLine else { return }
+            
+            var mapRect = routeLine.boundingMapRect
+            
+            let annotationsToInclude = annotations.map { $0.annotation.coordinate }
+            for coordinate in annotationsToInclude {
+                let point = MKMapPoint(coordinate)
+                let rect = MKMapRect(x: point.x, y: point.y, width: 0, height: 0)
+                mapRect = mapRect.union(rect)
+            }
+            
+            let paddedRect = mapRect.insetBy(dx: -mapRect.size.width * 0.2, dy: -mapRect.size.height * 0.2)
+            let region = MKCoordinateRegion(paddedRect)
+            
+            DispatchQueue.main.async {
+                self.mapRegion = region
+            }
+        }
     
     private func regionThatFits(annotations: [CLLocationCoordinate2D]) -> MKCoordinateRegion {
         var minLat: CLLocationDegrees = 90.0
@@ -72,8 +88,8 @@ class MapViewViewModel: ObservableObject {
             longitude: (minLon + maxLon) / 2)
         
         let span = MKCoordinateSpan(
-            latitudeDelta: (maxLat - minLat) * 1.1, // 10% padding
-            longitudeDelta: (maxLon - minLon) * 1.1) // 10% padding
+            latitudeDelta: (maxLat - minLat) * 1.1,
+            longitudeDelta: (maxLon - minLon) * 1.1) 
         
         return MKCoordinateRegion(center: center, span: span)
     }
@@ -84,6 +100,29 @@ class MapViewViewModel: ObservableObject {
         mapItem.name = "Customer Location"
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
     }
+    
+    func fetchRoute() {
+        let driverLocation = annotations.first { $0.annotation is DriverAnnotation }?.annotation.coordinate ?? CLLocationCoordinate2D()
+        let customerLocation = self.customerLocation
+        
+        let driverPlacemark = MKPlacemark(coordinate: driverLocation)
+        let customerPlacemark = MKPlacemark(coordinate: customerLocation)
+        
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: driverPlacemark)
+        request.destination = MKMapItem(placemark: customerPlacemark)
+        request.transportType = .automobile // or adjust according to your app
+        
+        let directions = MKDirections(request: request)
+        directions.calculate { [weak self] response, error in
+            guard let route = response?.routes.first else { return }
+            self?.routeLine = route.polyline // Store the route line
+            self?.updateRegionForLocations()
+        }
+    }
+    
+    @Published var routeLine: MKPolyline?
+    
 }
 
 class DriverAnnotation: NSObject, MKAnnotation {
@@ -98,4 +137,7 @@ class CustomerAnnotation: NSObject, MKAnnotation {
     init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate
     }
+    
 }
+
+

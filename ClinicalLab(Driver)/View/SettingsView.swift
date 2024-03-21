@@ -66,7 +66,6 @@ struct SettingsView: View {
                     if success {
                         self.biometricsEnabled = true
                     } else {
-                        // There was a problem
                         self.biometricsEnabled = false
                     }
                 }

@@ -167,16 +167,13 @@ class RouteViewModel: ObservableObject {
                 switch result {
                 case .success(let responseString):
                     if responseString == "Success" {
-                        // Find the customer in routeDetails and update the status
                         if let index = self?.routeDetails.firstIndex(where: { $0.customer.contains(where: { $0.id == selectedCustomer.id }) }),
                            let customerIndex = self?.routeDetails[index].customer.firstIndex(where: { $0.id == selectedCustomer.id }) {
                             self?.routeDetails[index].customer[customerIndex].collectionStatus = collectionStatus
                             self?.routeDetails[index].customer[customerIndex].specimensCollected = numberOfSpecimensInt
                             
-                            // Set the flag to false to trigger the navigation back
                             self?.updateLocalCustomerStatus(customerId: customerId, newStatus: collectionStatus, numberOfSpecimens: numberOfSpecimensInt)
                             
-                            // Set the flag to false to navigate back to RoutesView
                             self?.isShowingMapForCustomer = false
                             self?.objectWillChange.send()
                             
