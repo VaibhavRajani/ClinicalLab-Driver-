@@ -17,7 +17,7 @@ enum SignUpError: Error {
 
 class SignUpService {
     func signUp(phoneNumber: String, password: String, confirmPassword: String, completion: @escaping (Result<SignUpResponse, SignUpError>) -> Void) {
-        guard let url = URL(string: "https://pclwebapi.azurewebsites.net/api/Driver/DriverSignUp") else {
+        guard let url = URL(string: "\(Configuration.baseURL)\(Configuration.Endpoint.driverSignUp)") else {
             completion(.failure(.unknown))
             return
         }

@@ -43,7 +43,7 @@ enum LoginError: Error {
 
 class LoginService {
     func login(phoneNumber: String, password: String, completion: @escaping (Result<LoginResponse, LoginError>) -> Void) {
-        guard let url = URL(string: "https://pclwebapi.azurewebsites.net/api/Driver/DriverLogin") else {
+        guard let url = URL(string: "\(Configuration.baseURL)\(Configuration.Endpoint.driverLogin)") else {
             completion(.failure(.unknown))
             return
         }

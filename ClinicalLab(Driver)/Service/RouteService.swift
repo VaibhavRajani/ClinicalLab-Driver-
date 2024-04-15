@@ -9,7 +9,7 @@ import Foundation
 
 class RouteService {
     func getRouteDetails(routeNumber: Int, completion: @escaping (Result<[RouteDetailResponse], Error>) -> Void) {
-        guard let url = URL(string: "https://pclwebapi.azurewebsites.net/api/Route/GetRouteDetail/?RouteNumber=\(routeNumber)") else { return }
+        guard let url = URL(string: "\(Configuration.baseURL)\(Configuration.Endpoint.getRouteDetail)/?RouteNumber=\(routeNumber)") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -43,7 +43,7 @@ class RouteService {
     }
     
     func getDriverLocation(driverId: Int, completion: @escaping (Result<DriverLocation, Error>) -> Void) {
-        let urlString = "https://pclwebapi.azurewebsites.net/api/Driver/GetDriverLocation?DriverId=\(driverId)"
+        let urlString = "\(Configuration.baseURL)\(Configuration.Endpoint.getDriverLocation)?DriverId=\(driverId)"
         guard let url = URL(string: urlString) else {
             completion(.failure(URLError(.badURL)))
             return
@@ -88,7 +88,7 @@ class RouteService {
     }
     
     func updateTransactionStatus(customerId: Int, numberOfSpecimens: Int, routeId: Int, status: Int, updateBy: String, completion: @escaping (Result<String, Error>) -> Void) {
-        guard let url = URL(string: "https://pclwebapi.azurewebsites.net/api/Admin/AddUpdateTransactionStatus") else { return }
+        guard let url = URL(string: "\(Configuration.baseURL)\(Configuration.Endpoint.addUpdateTransactionStatus)") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
