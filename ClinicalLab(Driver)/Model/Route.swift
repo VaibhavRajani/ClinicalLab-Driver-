@@ -33,7 +33,7 @@ struct Route: Codable {
     }
 }
 
-struct Customer: Codable, Identifiable {
+struct Customer: Codable, Identifiable, Equatable {
     var id: Int { customerId ?? 0 }
     let customerId: Int?
     let customerName: String?

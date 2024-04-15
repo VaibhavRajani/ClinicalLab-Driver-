@@ -52,8 +52,11 @@ struct LoginView: View {
                     self.routeNumber = routeNo
                 }
             }
-            
-            NavigationLink("", destination: RoutesView(viewModel: RouteViewModel(), routeNo: routeNumber ?? 0), isActive: $viewModel.isAuthenticated)
+            .navigationDestination(isPresented: $viewModel.isAuthenticated) {
+                RoutesView(viewModel: RouteViewModel(), routeNo: routeNumber ?? 0)
+            }
+//            
+//                        NavigationLink("", destination: RoutesView(viewModel: RouteViewModel(), routeNo: routeNumber ?? 0), isActive: $viewModel.isAuthenticated)
             
             
             if viewModel.loginFailed {
@@ -62,12 +65,14 @@ struct LoginView: View {
             }
             
             Spacer()
-            NavigationLink(destination: SignUpView(viewModel: SignUpViewModel(signUpService: SignUpService())), isActive: $navigatingToSignUp) {
-                Button("Don't have an account? Sign Up") {
-                    navigatingToSignUp = true
-                }
-                .foregroundColor(Color.blue)
+            Button("Don't have an account? Sign Up") {
+                navigatingToSignUp = true
             }
+            .foregroundColor(Color.blue)
+            .navigationDestination(isPresented: $navigatingToSignUp) {
+                SignUpView(viewModel: SignUpViewModel(signUpService: SignUpService()))
+            }
+            
         }
         .navigationTitle("")
         .toolbarBackground(

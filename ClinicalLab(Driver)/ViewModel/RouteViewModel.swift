@@ -103,8 +103,10 @@ class RouteViewModel: ObservableObject {
                         }
                         Text("\(customer.streetAddress ?? ""), \(customer.city ?? ""), \(customer.state ?? "")")
                             .foregroundColor(.blue)
-                        Text("5431.7 miles away")
-                    }
+                        if let distance = self.distanceFromDriver(to: customer) {
+                            Text(String(format: "%.2f miles away", distance))
+                                .foregroundColor(.gray)
+                        }                    }
                     Spacer()
                     VStack(alignment: .trailing, spacing: 4) {
                         Text(self.formatPickUpTime(customer.pickUpTime))
@@ -113,9 +115,9 @@ class RouteViewModel: ObservableObject {
                 }
                 
                 Divider()
-                 .frame(height: 1)
-                 .padding(.horizontal, 30)
-                 .background(Color.gray)
+                    .frame(height: 1)
+                    .padding(.horizontal, 30)
+                    .background(Color.gray)
             }
             .font(.subheadline)
             .padding(.horizontal)
@@ -159,8 +161,8 @@ class RouteViewModel: ObservableObject {
         let numberOfSpecimensInt = Int(numberOfSpecimens) ?? 0
         
         let customerId = selectedCustomer.customerId ?? 0
-        let routeId = routeDetails.first?.route.routeNo ?? 0
-        let updateBy = String(routeDetails.first?.route.driverId ?? 0)
+        _ = routeDetails.first?.route.routeNo ?? 0
+        _ = String(routeDetails.first?.route.driverId ?? 0)
         
         routeService.updateTransactionStatus(customerId: selectedCustomer.customerId ?? 0, numberOfSpecimens: numberOfSpecimensInt, routeId: routeDetails.first?.route.routeNo ?? 0, status: statusInt, updateBy: String(routeDetails.first?.route.driverId ?? 0)) { [weak self] result in
             DispatchQueue.main.async {
@@ -196,6 +198,18 @@ class RouteViewModel: ObservableObject {
             }
             
         }
+    }
+    
+    func distanceFromDriver(to customer: Customer) -> CLLocationDistance? {
+        guard let driverLat = self.driverLocation?.lat,
+              let driverLon = self.driverLocation?.log,
+              let customerLat = customer.cust_Lat,
+              let customerLog = customer.cust_Log else { return nil }
+        
+        let driverLocation = CLLocation(latitude: driverLat, longitude: driverLon)
+        let customerLocation = CLLocation(latitude: customerLat, longitude: customerLog)
+        
+        return driverLocation.distance(from: customerLocation) / 1609.34
     }
     
 }

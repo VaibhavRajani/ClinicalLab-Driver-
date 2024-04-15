@@ -21,10 +21,8 @@ struct SettingsView: View {
                 Toggle(isOn: $biometricsEnabled) {
                     Text("Use Biometrics")
                 }
-                .onChange(of: biometricsEnabled) { isEnabled in
-                    if isEnabled {
-                        authenticate()
-                    }
+                .onChange(of: biometricsEnabled) {
+                    authenticate()
                 }
             }
             Section(header: Text("Change Password")) {

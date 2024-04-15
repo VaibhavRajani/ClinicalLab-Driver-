@@ -28,9 +28,7 @@ class RouteService {
                 completion(.failure(URLError(.badServerResponse)))
                 return
             }
-            
-            let jsonString = String(data: data, encoding: .utf8)
-            
+                        
             do {
                 let routeDetails = try JSONDecoder().decode([RouteDetailResponse].self, from: data)
                 DispatchQueue.main.async {

@@ -18,7 +18,7 @@ struct CustomerMapView: View {
 
     var body: some View {
         VStack {
-            if let selectedCustomer = viewModel.selectedCustomer, let driverLocation = viewModel.driverLocation {
+            if let selectedCustomer = viewModel.selectedCustomer {
                 VStack {
                     Text(selectedCustomer.customerName ?? "Unknown")
                         .font(.title2)

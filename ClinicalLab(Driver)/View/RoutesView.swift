@@ -15,7 +15,8 @@ struct RoutesView: View {
     @State private var showingSettings = false
     @Environment(\.presentationMode) var presentationMode
     @State private var showingLogin = false
-    
+    @State private var showingMap = false
+
     var body: some View {
         ScrollView {
             VStack {
@@ -33,12 +34,13 @@ struct RoutesView: View {
             .navigationTitle("")
             .navigationBarItems(
                 trailing: HStack{
-                    NavigationLink(
-                        destination: LoginView(viewModel: LoginViewModel(loginService: LoginService())),
-                        isActive: $showingLogin
-                    ) {
-                        EmptyView()
-                    }
+//                    NavigationLink(
+//                        destination: LoginView(viewModel: LoginViewModel(loginService: LoginService())),
+//                        isActive: $showingLogin
+//                    ) {
+//                        EmptyView()
+//                    }
+                  
                     Button("Sign Out") {
                         showingLogin = true
                     }
@@ -52,6 +54,18 @@ struct RoutesView: View {
             )
             .sheet(isPresented: $showingSettings) {
                 SettingsView()
+            }
+            .navigationDestination(isPresented: $showingLogin) {
+                            LoginView(viewModel: LoginViewModel(loginService: LoginService()))
+                        }
+            .navigationDestination(isPresented: $showingMap) {
+                if let selectedCustomer = viewModel.selectedCustomer,
+                   let lat = selectedCustomer.cust_Lat,
+                   let long = selectedCustomer.cust_Log {
+                    CustomerMapView(viewModel: viewModel)
+                } else {
+                    Text("Unable to fetch map details.")
+                }
             }
             .fullScreenCover(isPresented: $showingLogin) {
                 LoginView(viewModel: LoginViewModel(loginService: LoginService()))
@@ -68,23 +82,11 @@ struct RoutesView: View {
             for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
-        
-        if let selectedCustomer = viewModel.selectedCustomer,
-           let customerLat = selectedCustomer.cust_Lat,
-           let customerLong = selectedCustomer.cust_Log,
-           let driverId = viewModel.routeDetails.first?.route.driverId {
-            
-            let customerLocation = CLLocationCoordinate2D(latitude: customerLat, longitude: customerLong)
-            let mapViewModel = MapViewViewModel(driverLocationService: RouteService(), driverId: driverId, customerLocation: customerLocation)
-            
-            NavigationLink(
-                destination: CustomerMapView(viewModel: viewModel),
-                isActive: $viewModel.isShowingMapForCustomer
-            ) {
-                EmptyView()
-            }.hidden()
+        .onChange(of: viewModel.selectedCustomer) {
+            showingMap = viewModel.isShowingMapForCustomer && viewModel.selectedCustomer != nil
         }
     }
+    
     @ViewBuilder
     private var mapView: some View {
         if let driverId = viewModel.routeDetails.first?.route.driverId,

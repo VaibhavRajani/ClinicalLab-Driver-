@@ -48,7 +48,7 @@ class SignUpService {
             }
             
             do {
-                let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
+                _ = try JSONDecoder().decode(LoginResponse.self, from: data)
             } catch {
                 print("Decoding error: \(error.localizedDescription)")
                 completion(.failure(.unknown))
