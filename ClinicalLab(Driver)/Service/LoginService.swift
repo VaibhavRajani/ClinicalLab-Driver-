@@ -41,44 +41,11 @@ enum LoginError: Error {
     }
 }
 
-class LoginService {
-    func login(phoneNumber: String, password: String, completion: @escaping (Result<LoginResponse, LoginError>) -> Void) {
-        guard let url = URL(string: "\(Configuration.baseURL)\(Configuration.Endpoint.driverLogin)") else {
-            completion(.failure(.unknown))
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+class LoginService: BaseService {
+    func login(phoneNumber: String, password: String, completion: @escaping (Result<LoginResponse, Error>) -> Void) {
         let body = ["PhoneNumber": phoneNumber, "Password": password]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Networking error: \(error.localizedDescription)")
-                completion(.failure(.unknown))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(.unknown))
-                return
-            }
-            
-            do {
-                let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
-                completion(.success(loginResponse))
-            } catch let decodingError {
-                print("Decoding error: \(decodingError)")
-                completion(.failure(.decodingError(decodingError.localizedDescription)))
-            }
-        }
-        
-        task.resume()
+        let endpoint = Configuration.Endpoint.driverLogin
+        makeRequest(to: endpoint, with: body, completion: completion)
     }
 }
-
-
 
