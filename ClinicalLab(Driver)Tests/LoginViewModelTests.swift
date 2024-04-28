@@ -16,7 +16,7 @@ class MockLoginService: LoginService {
         self.loginResult = loginResult
     }
 
-    override func login(phoneNumber: String, password: String, completion: @escaping (Result<LoginResponse, LoginError>) -> Void) {
+    func login(phoneNumber: String, password: String, completion: @escaping (Result<LoginResponse, LoginError>) -> Void) {
         completion(loginResult)
     }
 }

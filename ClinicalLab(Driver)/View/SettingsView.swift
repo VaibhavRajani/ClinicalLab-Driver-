@@ -17,23 +17,23 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Security")) {
+            Section(header: Text(Strings.securityTitle)) {
                 Toggle(isOn: $biometricsEnabled) {
-                    Text("Use Biometrics")
+                    Text(Strings.useBiometrics)
                 }
                 .onChange(of: biometricsEnabled) {
                     authenticate()
                 }
             }
-            Section(header: Text("Change Password")) {
-                SecureField("New Password", text: $newPassword)
-                SecureField("Confirm Password", text: $confirmPassword)
-                Button("Update Password") {
+            Section(header: Text(Strings.changePasswordTitle)) {
+                SecureField(Strings.passwordPlaceholder, text: $newPassword)
+                SecureField(Strings.confirmPasswordPlaceholder, text: $confirmPassword)
+                Button(Strings.changePasswordTitle) {
                     updatePassword()
                 }
             }
         }
-        .navigationBarTitle("Settings", displayMode: .large)
+        .navigationBarTitle(Strings.settingsTitle, displayMode: .large)
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Password Update"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
@@ -41,12 +41,12 @@ struct SettingsView: View {
     
     private func updatePassword() {
         guard newPassword == confirmPassword else {
-            alertMessage = "Passwords do not match."
+            alertMessage = Strings.passwordsDontMatch
             showAlert = true
             return
         }
         
-        alertMessage = "Password successfully updated."
+        alertMessage = Strings.passwordUpdated
         showAlert = true
     }
     
@@ -55,7 +55,7 @@ struct SettingsView: View {
         var error: NSError?
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "Identify yourself!"
+            let reason = Strings.identifyYourself
             
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
                 success, authenticationError in

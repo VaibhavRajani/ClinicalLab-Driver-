@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F177AD52BD15C6000324A82 /* SignUpViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F177AD42BD15C6000324A82 /* SignUpViewUITests.swift */; };
+		2F177AD72BD16A4E00324A82 /* SettingsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F177AD62BD16A4E00324A82 /* SettingsViewUITests.swift */; };
 		2F29C3B62B9F63770032AB33 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29C3B52B9F63770032AB33 /* MapView.swift */; };
 		2F387A2F2B96A381000ED2B0 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F387A2E2B96A381000ED2B0 /* Driver.swift */; };
 		2F54055A2B8BFC4900C8BC99 /* ClinicalLab_Driver_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5405592B8BFC4900C8BC99 /* ClinicalLab_Driver_App.swift */; };
@@ -30,6 +32,7 @@
 		2F54059E2B8C14DD00C8BC99 /* RoutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54059D2B8C14DD00C8BC99 /* RoutesView.swift */; };
 		2F58352E2BAC046400304322 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58352D2BAC046400304322 /* LoginViewModelTests.swift */; };
 		2F5835322BAC07B700304322 /* LoginViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5835312BAC07B700304322 /* LoginViewUITests.swift */; };
+		2F77025C2BDF0C8B00337EFE /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77025B2BDF0C8B00337EFE /* Strings.swift */; };
 		2F7792C92BCCAEB400F1D98A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7792C82BCCAEB400F1D98A /* Configuration.swift */; };
 		2F7792CB2BCCB8E400F1D98A /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7792CA2BCCB8E400F1D98A /* BaseService.swift */; };
 		2FB32CF72BA2038100B99611 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB32CF62BA2038100B99611 /* MapViewModel.swift */; };
@@ -55,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F177AD42BD15C6000324A82 /* SignUpViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewUITests.swift; sourceTree = "<group>"; };
+		2F177AD62BD16A4E00324A82 /* SettingsViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewUITests.swift; sourceTree = "<group>"; };
 		2F29C3B52B9F63770032AB33 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2F387A2E2B96A381000ED2B0 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		2F5405562B8BFC4900C8BC99 /* ClinicalLab(Driver).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClinicalLab(Driver).app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +86,7 @@
 		2F54059D2B8C14DD00C8BC99 /* RoutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesView.swift; sourceTree = "<group>"; };
 		2F58352D2BAC046400304322 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		2F5835312BAC07B700304322 /* LoginViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewUITests.swift; sourceTree = "<group>"; };
+		2F77025B2BDF0C8B00337EFE /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		2F7792C82BCCAEB400F1D98A /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		2F7792CA2BCCB8E400F1D98A /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		2FB32CF62BA2038100B99611 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -171,6 +177,8 @@
 				2F5405742B8BFC4B00C8BC99 /* ClinicalLab_Driver_UITests.swift */,
 				2F5405762B8BFC4B00C8BC99 /* ClinicalLab_Driver_UITestsLaunchTests.swift */,
 				2F5835312BAC07B700304322 /* LoginViewUITests.swift */,
+				2F177AD42BD15C6000324A82 /* SignUpViewUITests.swift */,
+				2F177AD62BD16A4E00324A82 /* SettingsViewUITests.swift */,
 			);
 			path = "ClinicalLab(Driver)UITests";
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 				2F54055B2B8BFC4900C8BC99 /* ContentView.swift */,
 				2F54059D2B8C14DD00C8BC99 /* RoutesView.swift */,
 				2FB32CFA2BA25CD900B99611 /* SettingsView.swift */,
+				2F77025B2BDF0C8B00337EFE /* Strings.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,6 +389,7 @@
 				2F5405882B8BFD1900C8BC99 /* LoginService.swift in Sources */,
 				2F54059C2B8C14B900C8BC99 /* RouteViewModel.swift in Sources */,
 				2F7792CB2BCCB8E400F1D98A /* BaseService.swift in Sources */,
+				2F77025C2BDF0C8B00337EFE /* Strings.swift in Sources */,
 				2F5405922B8BFFA200C8BC99 /* SignUpView.swift in Sources */,
 				2F5405942B8C001800C8BC99 /* SignUpRequest.swift in Sources */,
 				2F54058C2B8BFD7A00C8BC99 /* LoginView.swift in Sources */,
@@ -405,6 +415,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F177AD72BD16A4E00324A82 /* SettingsViewUITests.swift in Sources */,
+				2F177AD52BD15C6000324A82 /* SignUpViewUITests.swift in Sources */,
 				2F5405752B8BFC4B00C8BC99 /* ClinicalLab_Driver_UITests.swift in Sources */,
 				2F5835322BAC07B700304322 /* LoginViewUITests.swift in Sources */,
 				2F5405772B8BFC4B00C8BC99 /* ClinicalLab_Driver_UITestsLaunchTests.swift in Sources */,

@@ -21,7 +21,7 @@ struct RoutesView: View {
         ScrollView {
             VStack {
                 if viewModel.routeDetails.isEmpty {
-                    Text("Fetching route details...")
+                    Text(Strings.fetchRouteDetails)
                 } else {
                     ForEach(viewModel.routeDetails, id: \.route.routeNo) { routeDetail in
                         viewModel.routeInformationView(routeDetail: routeDetail)
@@ -32,6 +32,7 @@ struct RoutesView: View {
             }
             .navigationBarBackButtonHidden(true)
             .navigationTitle("")
+            .accessibility(identifier: "RoutesViewIdentifier")
             .navigationBarItems(
                 trailing: HStack{
 //                    NavigationLink(
@@ -41,16 +42,18 @@ struct RoutesView: View {
 //                        EmptyView()
 //                    }
                   
-                    Button("Sign Out") {
+                    Button(Strings.signoutButtonTitle) {
                         showingLogin = true
                     }
                     .foregroundColor(.red)
+                    .accessibility(identifier: "SignOutButton")
                     Button(action: {
                         showingSettings = true
                     }) {
                         Image(systemName: "gear")
                             .foregroundColor(.white)
                     }}
+                    .accessibility(identifier: "SettingsButton")
             )
             .sheet(isPresented: $showingSettings) {
                 SettingsView()
@@ -64,7 +67,7 @@ struct RoutesView: View {
                    let long = selectedCustomer.cust_Log {
                     CustomerMapView(viewModel: viewModel)
                 } else {
-                    Text("Unable to fetch map details.")
+                    Text(Strings.unableToFetchDetails)
                 }
             }
             .fullScreenCover(isPresented: $showingLogin) {
@@ -99,7 +102,7 @@ struct RoutesView: View {
                 customerLocation: CLLocationCoordinate2D(latitude: lat, longitude: long)
             ))
         } else {
-            Text("Unable to fetch map details.")
+            Text(Strings.unableToFetchDetails)
         }
     }
     

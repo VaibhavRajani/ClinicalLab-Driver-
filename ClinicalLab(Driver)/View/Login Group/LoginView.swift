@@ -23,29 +23,30 @@ struct LoginView: View {
                 .padding(.top)
             
             HStack {
-                Text("Phone No:")
+                Text(Strings.phoneNumberLabel)
                     .foregroundStyle(Color.customPink)
-                TextField("Enter Phone Number", text: $viewModel.phoneNumber)
+                TextField(Strings.phoneNumberPlaceholder, text: $viewModel.phoneNumber)
             }
             .keyboardType(.numberPad)
             .padding()
             
             HStack {
-                Text("Password:")
+                Text(Strings.passwordLabel)
                     .foregroundStyle(Color.customPink)
-                SecureField("Enter Password", text: $viewModel.password)
+                SecureField(Strings.passwordPlaceholder, text: $viewModel.password)
             }
             .padding()
             
             Button(action: {
                 viewModel.login()
             }) {
-                Text("Login")
+                Text(Strings.loginButtonTitle)
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.customPink)
                     .cornerRadius(8)
+                
             }
             .onAppear {
                 viewModel.onLoginSuccess = { routeNo in
@@ -60,12 +61,12 @@ struct LoginView: View {
             
             
             if viewModel.loginFailed {
-                Text("Login failed. Please try again.")
+                Text(Strings.loginFailedError)
                     .foregroundColor(.red)
             }
             
             Spacer()
-            Button("Don't have an account? Sign Up") {
+            Button(Strings.signUpPrompt) {
                 navigatingToSignUp = true
             }
             .foregroundColor(Color.blue)

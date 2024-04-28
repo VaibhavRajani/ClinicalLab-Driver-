@@ -18,31 +18,34 @@ struct SignUpView: View {
                 .padding()
             
             HStack {
-                Text("Phone No:")
+                Text(Strings.phoneNumberLabel)
                     .foregroundStyle(Color.customPink)
-                TextField("Enter Phone Number", text: $viewModel.phoneNumber)
+                TextField(Strings.phoneNumberPlaceholder, text: $viewModel.phoneNumber)
             }
             .keyboardType(.numberPad)
             .padding()
             
             HStack {
-                Text("Password:")
+                Text(Strings.passwordLabel)
                     .foregroundStyle(Color.customPink)
-                SecureField("Enter Password", text: $viewModel.password)
+                SecureField(Strings.passwordPlaceholder, text: $viewModel.password)
+                    .accessibility(identifier: "passwordField")
             }
             .padding()
             
             HStack {
-                Text("Password:")
+                Text(Strings.confirmPasswordPlaceholder)
                     .foregroundStyle(Color.customPink)
-                SecureField("Enter Password", text: $viewModel.confirmPassword)
+                SecureField(Strings.passwordPlaceholder, text: $viewModel.confirmPassword)
+                    .accessibility(identifier: "confirmPasswordField")
+
             }
             .padding()
             
             Button(action: {
                 viewModel.signUp()
             }) {
-                Text("Sign Up")
+                Text(Strings.signupButtonTitle)
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
