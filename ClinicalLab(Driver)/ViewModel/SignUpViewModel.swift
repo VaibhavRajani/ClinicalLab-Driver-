@@ -22,23 +22,34 @@ class SignUpViewModel: ObservableObject {
     }
     
     func signUp() {
-        signUpService.signUp(phoneNumber: phoneNumber, password: password, confirmPassword: confirmPassword) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let response):
-                    print(response.result)
-                case .failure(let error):
-                    self?.signUpFailed = true
-                    switch error {
-                    case .accountExists:
-                        self?.failureMessage = "Driver account already exists."
-                    case .phoneNumberNotExists:
-                        self?.failureMessage = "Phone number not exists."
-                    default:
-                        self?.failureMessage = "An unknown error occurred."
+            signUpService.signUp(phoneNumber: phoneNumber, password: password, confirmPassword: confirmPassword) { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let response):
+                        print("Sign-up successful: \(response.result)")
+                        self?.signUpFailed = false
+                    case .failure(let error):
+                        self?.signUpFailed = true
+                        self?.handleError(error)
                     }
                 }
             }
         }
-    }
+        
+        private func handleError(_ error: Error) {
+            if let signUpError = error as? SignUpError {
+                switch signUpError {
+                case .accountExists:
+                    failureMessage = "Driver account already exists."
+                case .phoneNumberNotExists:
+                    failureMessage = "Phone number not exists."
+                case .failed:
+                    failureMessage = "Sign up failed due to server error."
+                case .unknown:
+                    failureMessage = "An unknown error occurred."
+                }
+            } else {
+                failureMessage = "An unexpected error occurred."
+            }
+        }
 }
